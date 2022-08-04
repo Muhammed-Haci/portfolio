@@ -168,13 +168,13 @@ body.light {
 /* ========== Start Dark Theme ==========*/
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-clr: #731904;
+    --primary-clr: #ff8f24;
     --white-clr: #303030;
     --black-clr: #fff;
   }
 }
 body.dark {
-  --primary-clr: #731904;
+  --primary-clr: #ff8f24;
   --white-clr: #303030;
   --black-clr: #fff;
 }
@@ -183,134 +183,176 @@ body.dark {
 /* ======= Start common Styles ========= */
 /* ========= End common Styles ========= */
 /* =========== Start Header ===========  */
-header {
-  position: relative;
-  margin-bottom: 25px;
-}
-header::after {
-  content: "";
-  position: absolute;
-  height: 1px;
-  width: 100%;
-  bottom: 25px;
-  background: var(--cultured-clr);
-}
 header .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  height: 40px;
+  border-bottom: 1px solid var(--cultured-clr);
 }
-header .logo {
+header .content .logo {
   position: absolute;
-  bottom: -34px;
-  font-size: 0.9375rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 5px 10px;
+  top: 45px;
+  height: 30px;
+  width: 30px;
+  line-height: 26px;
+  text-align: center;
   border-radius: 50%;
-  border: 2px solid var(--primary-clr);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-transform: capitalize;
+  border: 1px solid var(--primary-clr);
   border-left-style: dotted;
-  color: var(--black-clr);
 }
-header .social__media {
+header .content > ul {
   display: flex;
   align-items: center;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  justify-content: space-between;
 }
-header .social__media a {
-  display: block;
+header .content > ul li {
+  height: 20px;
   width: 20px;
 }
-header .options {
+header .content > ul li:not(:last-child) {
+  margin-right: 10px;
+}
+header .content .options {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+header .content button {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+header .content button img {
+  width: 100%;
+}
+header .content .website__lang {
   position: relative;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
-}
-header .options::before {
-  content: "";
-  position: absolute;
-  height: 22px;
-  width: 1px;
-  left: 35%;
-  bottom: 15px;
-  background-color: #6D6E6E;
-}
-header .options .theme__mode {
-  width: 40px;
-  border: none;
+  padding-left: 10px;
   cursor: pointer;
-  background-color: transparent;
+  z-index: 3;
+  border-left: 1px solid var(--black-clr);
 }
-header .options .website__language {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+header .content .website__lang img:first-child {
+  padding-right: 3px;
 }
-header .options .website__language:hover ul {
+header .content .website__lang.open .lang__list {
   display: block !important;
 }
-header .options .website__language .flag {
+header .content .website__lang.open .arrow {
+  transform: rotate(180deg);
+}
+header .content .arrow {
   position: relative;
-  width: 30px;
-}
-header .options .website__language .flag ul {
-  position: absolute;
-  display: none;
-  width: 61px;
-  top: 0;
-  z-index: 2;
-  text-align: center;
-  background-color: #6D6E6E;
-}
-header .options .website__language .flag ul li:hover {
-  background-color: #0059B2;
-}
-header .options .website__language .flag ul li a {
-  display: inline;
-  font-size: 10px;
-}
-header .options .website__language .flag ul li a span {
-  color: white;
-  padding-left: 5px;
-  position: relative;
-  top: -2px;
-}
-header .options .website__language .arrow {
-  width: 10px;
-}
-header .toggle__manu {
-  position: relative;
-  width: 30px;
-  bottom: -9px;
-  margin-left: auto;
-  cursor: pointer;
-}
-header .toggle__manu span {
-  display: block;
-  width: 100%;
-  height: 2px;
+  top: 3px;
+  width: 15px;
   transition: var(--transition);
-  background-color: var(--black-clr);
 }
-header .toggle__manu span:not(:last-child) {
+header .content .lang__list {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: var(--transition);
+  background-color: #024956;
+}
+header .content .lang__list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 3px 10px;
+}
+header .content .lang__list a:hover {
+  background-color: #731904;
+}
+header .content .lang__list span {
+  font-size: 12px;
+  color: var(--black-clr);
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  max-height: 40px;
+  padding-block: 10px;
+}
+header nav .toggle__manu {
+  height: 19px;
+  width: 25px;
+  cursor: pointer;
+  transition: var(--transition);
+  transition-delay: 0.4s;
+}
+header nav .toggle__manu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  transition: var(--transition);
+  background-color: var(--primary-clr);
+}
+header nav .toggle__manu span:not(:last-child) {
   margin-bottom: 5px;
 }
-header .toggle__manu.open span:first-child {
-  transform: rotate(45deg) translate(6px, 3px);
-  background-color: var(--red-color);
+header nav .toggle__manu.open {
+  transform: rotate(-45deg);
 }
-header .toggle__manu.open span:nth-child(2) {
+header nav .toggle__manu.open span:first-child {
+  transform: translateY(10px);
+  transition-delay: 0.2s;
+  background-color: red;
+}
+header nav .toggle__manu.open span:nth-child(2) {
   transform: translateX(-15px);
   opacity: 0;
 }
-header .toggle__manu.open span:last-child {
-  transform: rotate(-45deg) translate(6px, -5px);
-  background-color: var(--red-color);
+header nav .toggle__manu.open span:last-child {
+  transform: rotate(-90deg) translateX(6px);
+  transition-delay: 0.2s;
+  background-color: red;
+}
+header nav .toggle__manu.open ~ ul {
+  opacity: 1 !important;
+  z-index: 2 !important;
+  bottom: -113px !important;
+}
+header nav ul {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  position: absolute;
+  bottom: -130px;
+  width: 100%;
+  opacity: 0;
+  z-index: -2;
+  transition: var(--transition);
+  transition-delay: 0.2s;
+  background-color: var(--white-clr);
+}
+header nav ul li {
+  padding-block: 10px;
+}
+header nav ul li:hover {
+  background-color: #8e35217f;
+}
+header nav ul a {
+  text-align: center;
+}
+header nav ul a img {
+  display: block;
+  width: 15px;
+  margin: 0 auto;
+}
+header nav ul a span {
+  display: block;
+  font-size: 14px;
+  color: var(--black-clr);
 }
 
 /* =========== End Header =============  */

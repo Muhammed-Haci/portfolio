@@ -46,4 +46,24 @@ themeIcon.addEventListener("click", () => {
 let toggleBtn = document.querySelector(".toggle__manu");
 
 toggleBtn.addEventListener("click", () => toggleBtn.classList.toggle("open"));
+
+document.addEventListener("click", (e) => {
+  if (toggleBtn.classList.contains("open") && !e.target.classList.contains(".toggle__manu")) {
+      // toggleBtn.classList.remove("open");
+      console.log("Hello");
+  }
+});
+
+// ===== toggle open class to lang Menu ======== //
+
+let langMenu = document.querySelector(".website__lang");
+
+langMenu.addEventListener("click", () => langMenu.classList.toggle("open"));
+
+// document.addEventListener("click", (e) => {
+//   if (langMenu.classList.contains("open") && !e.target.classList.contains(".toggle__manu")) {
+//       // toggleBtn.classList.remove("open");
+//       console.log("Hello");
+//   }
+// });
 //# sourceMappingURL=main.js.map

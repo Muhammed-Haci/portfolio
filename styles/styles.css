@@ -132,14 +132,15 @@ a:visited {
   /* === colors === */
   --white-clr: #fff;
   --black-clr: #000;
+  --light-clr: #bababa;
   --foreground-clr: linear-gradient(to bottom, #dbd8d6 0%, #ededec 13%, #ededec 86%, #dbd8d6 99%, #dbd8d6 100%);
   --background-clr: #f5f5f5;
   --title-clr: #535362;
   --text-clr: #1b1b1b;
   --primary-clr: #13b0d7;
   --primary-alt-clr: #21688e7f;
-  --gray: #808080;
   --danger-clr: #d20000;
+  --secondary-clr: #9f2f0a;
   /* === Family Fonts === */
   --body-font: "open Sans", sans-serif;
   --title-font: "Merriweather", sans-serif;
@@ -165,6 +166,7 @@ a:visited {
 body.light {
   --white-clr: #fff;
   --black-clr: #000;
+  --light-clr: #bababa;
   --foreground-clr: linear-gradient(to bottom, #dbd8d6 0%, #ededec 13%, #ededec 86%, #dbd8d6 99%, #dbd8d6 100%);
   --background-clr: #f5f5f5;
   --title-clr: #535362;
@@ -180,6 +182,7 @@ body.light {
   :root {
     --white-clr: #000;
     --black-clr: #fff;
+    --light-clr: #bababa;
     --foreground-clr: linear-gradient(to bottom, #2B2B2B 0%, #1F1F1F 13%, #1F1F1F 86%, #2B2B2B 99%, #2B2B2B 100%);
     --background-clr: #1F1F1F;
     --title-clr: #e3796a;
@@ -195,6 +198,7 @@ body.light {
 body.dark {
   --white-clr: #000;
   --black-clr: #fff;
+  --light-clr: #bababa;
   --foreground-clr: linear-gradient(to bottom, #2B2B2B 0%, #1F1F1F 13%, #1F1F1F 86%, #2B2B2B 99%, #2B2B2B 100%);
   --background-clr: #1F1F1F;
   --title-clr: #e3796a;
@@ -223,8 +227,8 @@ body.dark img {
   height: 10px;
   border-radius: 50%;
   bottom: -20px;
-  border: 1px solid var(--gray);
-  background-color: var(--gray);
+  border: 1px solid var(--light-clr);
+  background-color: var(--light-clr);
 }
 .title::before {
   left: -10px;
@@ -234,6 +238,7 @@ body.dark img {
 }
 .title h2 {
   position: relative;
+  text-transform: uppercase;
   color: var(--title-clr);
 }
 .title h2::before {
@@ -243,7 +248,7 @@ body.dark img {
   width: 100%;
   height: 2px;
   bottom: -17px;
-  border-top: 1px solid var(--gray);
+  border-top: 1px solid var(--light-clr);
 }
 .title h2::after {
   content: "";
@@ -255,7 +260,7 @@ body.dark img {
   left: 50%;
   bottom: -28px;
   transform: translateX(-50%);
-  background-color: var(--gray);
+  background-color: var(--light-clr);
 }
 .title img {
   width: 30px;
@@ -452,6 +457,7 @@ header nav ul {
   z-index: -2;
   transition: var(--transition);
   transition-delay: 0.2s;
+  border-radius: 0 0 5px 5px;
   background: var(--foreground-clr);
 }
 @media (min-width: 768px) {
@@ -594,7 +600,7 @@ header nav ul a span {
   color: var(--text-clr);
   transition: var(--transition);
   color: var(--white-clr);
-  background-color: var(--gray);
+  background-color: var(--light-clr);
 }
 .about .filter a:hover, .about .filter a:focus {
   background-color: var(--primary-alt-clr);
@@ -605,6 +611,70 @@ header nav ul a span {
 }
 
 /* ============ End About ============== */
+/* =========== Start Skills ============ */
+.skills {
+  padding-block: 50px;
+}
+.skills .content {
+  display: grid;
+  grid-template-columns: auto auto;
+  place-items: center;
+  padding-top: 50px;
+  gap: 30px;
+}
+@media (min-width: 576px) {
+  .skills .content {
+    grid-template-columns: auto auto auto;
+  }
+}
+@media (min-width: 768px) {
+  .skills .content {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+.skills .skill {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+}
+.skills .progress {
+  position: relative;
+}
+.skills .percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, -50%);
+}
+.skills .percentage span:first-child {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-right: 2px;
+}
+.skills .percentage span:last-child {
+  font-size: 10px;
+}
+.skills svg {
+  width: 117px;
+  height: 117px;
+}
+.skills circle {
+  fill: var(--primary-alt-clr);
+  stroke-width: 0.5rem;
+  transition: 3s;
+  stroke-dasharray: 314.2033691406;
+}
+.skills circle:first-child {
+  stroke: var(--light-clr);
+}
+.skills circle:last-child {
+  stroke: var(--primary-clr);
+  stroke-dashoffset: 314;
+}
+
+/* ============ End Skills ============= */
 /* ============ Start Footer =========== */
 footer {
   font-size: 1.125rem;

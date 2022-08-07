@@ -104,7 +104,6 @@ buttons.forEach((button) => {
 let skills = document.querySelectorAll(".skills");
 let progress = document.querySelectorAll(".skills .number");
 let circle = document.querySelectorAll(".skills .circle");
-let length = 80;
 let start = false;
 
 // window.addEventListener("scroll", () => {
@@ -114,6 +113,11 @@ let start = false;
 // });
 
 progress.forEach((prog) => {
+  let length = (prog.dataset.number / 100) * 314.203369140625;
+  circle.forEach((cir) => {
+    cir.style.strokeDashoffset = length;
+  });
+  
   let counter = setInterval(() => {
     prog.textContent++;
     if (prog.textContent === prog.dataset.number) {
@@ -122,8 +126,25 @@ progress.forEach((prog) => {
   }, 100 / prog.dataset.number);
 });
 
+// ===== toggle between the Portfolio filter ======= //
+let filterButtons = document.querySelectorAll(".portfolio .filter ul li");
+let projects = document.querySelectorAll(".portfolio .project .all");
 
-circle.forEach((cir) => {
-  cir.style.strokeDashoffset = length;
-});
+filterButtons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    e.target.classList.add("active");
+    projects.forEach((project) => {
+      project.style.cssText = `transform: scale(0.5); display: none`;
+      document.querySelectorAll(`.portfolio .${e.target.dataset.text}`).forEach((el) => {
+        el.style.cssText = `transform: scale(1); display: block`;
+      });
+    });
+  })
+})
+
+// ======= Set Copyright year in the footer ======== //
+let year = document.querySelector("footer .year");
+
+year.textContent = new Date().getFullYear();
 //# sourceMappingURL=main.js.map

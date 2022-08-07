@@ -88,7 +88,6 @@ ul {
 body {
   line-height: 1.5;
   overflow-x: hidden;
-  min-height: 1000rem;
   font-family: var(--body-font);
   background-color: var(--background-clr);
 }
@@ -133,6 +132,7 @@ a:visited {
   --white-clr: #fff;
   --black-clr: #000;
   --light-clr: #bababa;
+  --dark-clr: #2B2B2B;
   --foreground-clr: linear-gradient(to bottom, #dbd8d6 0%, #ededec 13%, #ededec 86%, #dbd8d6 99%, #dbd8d6 100%);
   --background-clr: #f5f5f5;
   --title-clr: #535362;
@@ -167,6 +167,7 @@ body.light {
   --white-clr: #fff;
   --black-clr: #000;
   --light-clr: #bababa;
+  --dark-clr: #2B2B2B;
   --foreground-clr: linear-gradient(to bottom, #dbd8d6 0%, #ededec 13%, #ededec 86%, #dbd8d6 99%, #dbd8d6 100%);
   --background-clr: #f5f5f5;
   --title-clr: #535362;
@@ -183,6 +184,7 @@ body.light {
     --white-clr: #000;
     --black-clr: #fff;
     --light-clr: #bababa;
+    --dark-clr: #f5f5f5;
     --foreground-clr: linear-gradient(to bottom, #2B2B2B 0%, #1F1F1F 13%, #1F1F1F 86%, #2B2B2B 99%, #2B2B2B 100%);
     --background-clr: #1F1F1F;
     --title-clr: #e3796a;
@@ -199,6 +201,7 @@ body.dark {
   --white-clr: #000;
   --black-clr: #fff;
   --light-clr: #bababa;
+  --dark-clr: #f5f5f5;
   --foreground-clr: linear-gradient(to bottom, #2B2B2B 0%, #1F1F1F 13%, #1F1F1F 86%, #2B2B2B 99%, #2B2B2B 100%);
   --background-clr: #1F1F1F;
   --title-clr: #e3796a;
@@ -218,6 +221,7 @@ body.dark img {
   text-align: center;
   width: 200px;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 .title::before, .title::after {
   content: "";
@@ -226,7 +230,7 @@ body.dark img {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  bottom: -20px;
+  bottom: 54px;
   border: 1px solid var(--light-clr);
   background-color: var(--light-clr);
 }
@@ -265,8 +269,8 @@ body.dark img {
 .title img {
   width: 30px;
   position: absolute;
-  bottom: -28px;
   left: 50%;
+  bottom: 44px;
   transform: translateX(-50%);
 }
 
@@ -532,9 +536,6 @@ header nav ul a span {
   padding-block: 50px;
   background: var(--foreground-clr);
 }
-.about .content {
-  padding-block: 50px;
-}
 @media (min-width: 576px) {
   .about .content {
     display: flex;
@@ -619,7 +620,6 @@ header nav ul a span {
   display: grid;
   grid-template-columns: auto auto;
   place-items: center;
-  padding-top: 50px;
   gap: 30px;
 }
 @media (min-width: 576px) {
@@ -673,22 +673,192 @@ header nav ul a span {
   stroke: var(--primary-clr);
   stroke-dashoffset: 314;
 }
+.skills .name {
+  color: var(--black-clr);
+}
 
 /* ============ End Skills ============= */
+/* ========== Start Portfolio ========== */
+.portfolio {
+  padding-block: 50px;
+  background: var(--foreground-clr);
+}
+.portfolio .filter ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 15px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.portfolio .filter ul li {
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--black-clr);
+  transition: var(--transition);
+  border: 1px solid var(--primary-alt-clr);
+}
+.portfolio .filter ul li.active,
+.portfolio .filter ul li:hover,
+.portfolio .filter ul li:focus {
+  color: var(--white-clr);
+  border-color: var(--primary-alt-clr);
+  background-color: var(--primary-alt-clr);
+}
+.portfolio .filter .project {
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+  padding-top: 50px;
+  gap: 30px;
+}
+@media (min-width: 576px) {
+  .portfolio .filter .project {
+    grid-template-columns: auto auto;
+  }
+}
+@media (min-width: 992px) {
+  .portfolio .filter .project {
+    grid-template-columns: auto auto auto;
+  }
+}
+.portfolio .filter .project .all {
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+/* =========== End Portfolio =========== */
+/* ============ Start Hiring =========== */
+.hiring {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  padding-block: 50px;
+  height: 300px;
+  background: var(--primary-clr);
+}
+.hiring p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: var(--white-clr);
+  text-transform: capitalize;
+}
+.hiring h2 {
+  color: var(--white-clr);
+  text-transform: capitalize;
+}
+.hiring a {
+  font-size: 1.125rem;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: var(--primary-clr);
+  text-transform: capitalize;
+  transition: var(--transition);
+  background-color: var(--white-clr);
+}
+.hiring a:hover, .hiring a:focus, .hiring a:active {
+  color: var(--white-clr);
+  background-color: var(--primary-alt-clr);
+}
+
+/* ============= End Hiring ============ */
+/* ============ Start Contact ========== */
+.contact {
+  padding-block: 50px;
+  background: var(--foreground-clr);
+}
+.contact form {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+.contact .fields {
+  display: grid;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .contact .fields {
+    grid-template-columns: auto auto;
+  }
+}
+.contact input {
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: var(--transition);
+}
+.contact input:focus::-moz-placeholder {
+  opacity: 0;
+}
+.contact input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+.contact input:focus::placeholder {
+  opacity: 0;
+}
+.contact textarea {
+  height: 100px;
+  width: 100%;
+  resize: none;
+  padding: 5px;
+  overflow-y: auto;
+  margin-block: 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+.contact textarea:focus::-moz-placeholder {
+  opacity: 0;
+}
+.contact textarea:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+.contact textarea:focus::placeholder {
+  opacity: 0;
+}
+.contact input[type=submit] {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white-clr);
+  transition: var(--transition);
+  background-color: var(--primary-clr);
+}
+.contact input[type=submit]:hover, .contact input[type=submit]:focus {
+  background-color: var(--primary-alt-clr);
+}
+@media (min-width: 576px) {
+  .contact input[type=submit] {
+    width: 150px;
+  }
+}
+
+/* ============= End Contact =========== */
 /* ============ Start Footer =========== */
 footer {
+  background-color: var(--dark-clr);
+}
+footer .copyright {
+  padding-block: 10px;
+  text-align: center;
   font-size: 1.125rem;
-  color: #f85300;
+  color: var(--white-clr);
+}
+footer .copyright .heart {
+  color: var(--secondary-clr);
+  margin-inline: 0.1875rem;
+}
+footer .copyright .author {
+  font-weight: 600;
+  margin-inline: 0.1875rem;
+  color: var(--primary-clr);
 }
 
 /* ============ End Footer ============= */
 /* =========== Start Animation ========= */
 /* =========== End Animation =========== */
-select {
-  background-color: transparent;
-  border: none;
-}
-select option {
-  background-color: transparent;
-}
 /*# sourceMappingURL=styles.css.map */

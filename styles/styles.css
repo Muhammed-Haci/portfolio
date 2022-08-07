@@ -322,6 +322,10 @@ header .content > ul li {
   height: 30px;
   width: 30px;
 }
+header .content > ul li:last-child {
+  height: 35px;
+  width: 35px;
+}
 header .content > ul li:not(:last-child) {
   margin-right: 10px;
 }
@@ -336,10 +340,12 @@ header .content .options {
   justify-content: space-between;
 }
 header .content button {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   margin-right: 10px;
+  border-radius: 5px;
+  background-color: wheat;
 }
 header .content button img {
   width: 100%;
@@ -349,7 +355,6 @@ header .content .website__lang {
   padding-left: 10px;
   cursor: pointer;
   z-index: 3;
-  font-size: 20px;
   color: var(--text-clr);
   border-left: 1px solid var(--black-clr);
 }
@@ -536,7 +541,7 @@ header nav ul a span {
   padding-block: 50px;
   background: var(--foreground-clr);
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .about .content {
     display: flex;
     justify-content: space-between;
@@ -552,14 +557,15 @@ header nav ul a span {
 @media (min-width: 576px) {
   .about .img-holder {
     width: 50%;
+    margin: 0 auto;
   }
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .about .filter {
     width: 50%;
   }
 }
-.about .filter ul {
+.about .filter > ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -567,7 +573,12 @@ header nav ul a span {
   max-width: 300px;
   margin: 0 auto;
 }
-.about .filter ul li {
+@media (min-width: 768px) {
+  .about .filter > ul {
+    padding-top: 0;
+  }
+}
+.about .filter > ul li {
   font-weight: 600;
   padding: 10px 15px;
   border-radius: 5px;
@@ -576,7 +587,7 @@ header nav ul a span {
   transition: var(--transition);
   border: 1px solid var(--primary-alt-clr);
 }
-.about .filter ul li.active, .about .filter ul li:hover, .about .filter ul li:focus {
+.about .filter > ul li.active, .about .filter > ul li:hover, .about .filter > ul li:focus {
   color: var(--white-clr);
   border-color: var(--primary-alt-clr);
   background-color: var(--primary-alt-clr);
@@ -585,14 +596,27 @@ header nav ul a span {
   display: none;
   margin-bottom: 20px;
   color: var(--text-clr);
+  line-height: var(--line-height);
 }
 @media (min-width: 576px) {
   .about .filter .info > div {
-    height: 275px;
+    min-height: 290px;
   }
 }
+.about .filter .info > div:nth-child(2) {
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+}
+.about .filter .info > div:nth-child(2) div {
+  margin-block: 20px;
+}
+.about .filter .info > div:nth-child(2) h4 {
+  color: var(--title-clr);
+}
 .about .filter .info div.active {
-  display: block;
+  display: flex;
 }
 .about .filter a {
   margin-top: 10px;
@@ -725,8 +749,62 @@ header nav ul a span {
   }
 }
 .portfolio .filter .project .all {
-  cursor: pointer;
+  position: relative;
   transition: var(--transition);
+  transform-style: preserve-3d;
+  transition: var(--transition);
+  width: 325px;
+  height: 220px;
+}
+.portfolio .filter .project .all .face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: var(--transition);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.portfolio .filter .project .all .face.back {
+  padding: 10px;
+  background-color: var(--light-clr);
+  transform: perspective(500px) rotateY(180deg);
+}
+.portfolio .filter .project .all .face.back span {
+  font-weight: bold;
+  color: var(--title-clr);
+}
+.portfolio .filter .project .all .face.back .links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.625rem;
+}
+.portfolio .filter .project .all .face.back .links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -moz-column-gap: 3px;
+       column-gap: 3px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  transition: var(--transition);
+  border: 1px solid var(--primary-clr);
+  color: var(--black-clr);
+}
+.portfolio .filter .project .all .face.back .links a:hover, .portfolio .filter .project .all .face.back .links a:focus {
+  background-color: var(--primary-clr);
+}
+.portfolio .filter .project .all .face.back .links img {
+  width: 15px;
+}
+.portfolio .filter .project .all:hover .face.front, .portfolio .filter .project .all:focus .face.front {
+  transform: perspective(500px) rotateY(180deg);
+}
+.portfolio .filter .project .all:hover .face.back, .portfolio .filter .project .all:focus .face.back {
+  transform: perspective(500px) rotateY(360deg);
 }
 
 /* =========== End Portfolio =========== */

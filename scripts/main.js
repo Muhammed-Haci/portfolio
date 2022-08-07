@@ -55,35 +55,33 @@ themeIcon.addEventListener("click", () => {
   }
 });
 
-// ===== toggle open class to navbar Menu ======== //
+// ===== toggle "open" class to navbar Menu ======== //
 
 let toggleBtn = document.querySelector(".toggle__manu");
 
 toggleBtn.addEventListener("click", () => toggleBtn.classList.toggle("open"));
 
-document.addEventListener("click", () => {
-  if (toggleBtn.classList.contains("open")) {
-    // toggleBtn.classList.remove("open");
-    console.log("alright");
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("toggle__manu")) {
+    toggleBtn.classList.remove("open");
   }
 });
 
-// ===== toggle open class to lang Menu ======== //
+// ===== toggle "open" class to lang Menu ======== //
 
 let langMenu = document.querySelector(".website__lang");
 
 langMenu.addEventListener("click", () => langMenu.classList.toggle("open"));
 
-// document.addEventListener("click", (e) => {
-//   if (langMenu.classList.contains("open") && !e.target.classList.contains(".toggle__manu")) {
-// toggleBtn.classList.remove("open");
-//       console.log("Hello");
-//   }
-// });
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("website__lang")) {
+    langMenu.classList.remove("open");
+  }
+});
 
 // ===== toggle between the about filter ======= //
 
-let buttons = document.querySelectorAll("#about .filter li");
+let buttons = document.querySelectorAll("#about .filter > ul li");
 let divs = document.querySelectorAll("#about .info div");
 
 buttons.forEach((button) => {
@@ -145,6 +143,5 @@ filterButtons.forEach((btn) => {
 
 // ======= Set Copyright year in the footer ======== //
 let year = document.querySelector("footer .year");
-
 year.textContent = new Date().getFullYear();
 //# sourceMappingURL=main.js.map

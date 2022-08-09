@@ -59,7 +59,10 @@ themeIcon.addEventListener("click", () => {
 
 let toggleBtn = document.querySelector(".toggle__manu");
 
-toggleBtn.addEventListener("click", () => toggleBtn.classList.toggle("open"));
+toggleBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  toggleBtn.classList.toggle("open")
+});
 
 document.addEventListener("click", (e) => {
   if (!e.target.classList.contains("toggle__manu")) {
@@ -71,7 +74,10 @@ document.addEventListener("click", (e) => {
 
 let langMenu = document.querySelector(".website__lang");
 
-langMenu.addEventListener("click", () => langMenu.classList.toggle("open"));
+langMenu.addEventListener("click", (e) => {
+  e.stopPropagation();
+  langMenu.classList.toggle("open");
+});
 
 document.addEventListener("click", (e) => {
   if (!e.target.classList.contains("website__lang")) {
@@ -99,30 +105,66 @@ buttons.forEach((button) => {
 });
 
 // ============ Animate The Svg ================ //
-let skills = document.querySelectorAll(".skills");
+let skillsSection = document.querySelector(".skills");
 let progress = document.querySelectorAll(".skills .number");
 let circle = document.querySelectorAll(".skills .circle");
 let start = false;
 
-// window.addEventListener("scroll", () => {
-//   if (window.scrollY >= skills.offsetTop - window.innerHeight / 1.5) {
-
-//   }
-// });
-
-progress.forEach((prog) => {
-  let length = (prog.dataset.number / 100) * 314.203369140625;
-  circle.forEach((cir) => {
-    cir.style.strokeDashoffset = length;
-  });
-  
-  let counter = setInterval(() => {
-    prog.textContent++;
-    if (prog.textContent === prog.dataset.number) {
-      clearInterval(counter);
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= skillsSection.offsetTop - window.innerHeight / 1.5) {
+    if(!start) {
+      progress.forEach((prog) => {
+        let counter = setInterval(() => {
+          prog.textContent++;
+          if (prog.textContent === prog.dataset.number) {
+            clearInterval(counter);
+          }
+        }, 1500 / prog.dataset.number);
+      });
+      circle.forEach((cir) => {
+        cir.style.strokeDashoffset = 314 - (cir.dataset.number / 100) * 314;
+      });
     }
-  }, 100 / prog.dataset.number);
+    start = true;
+  }
 });
+
+// ========= Flip The project card ============= //
+let card = document.querySelectorAll(".portfolio .all");
+let flipBtn = document.querySelectorAll(".portfolio .flip");
+
+flipBtn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    card.forEach((card) => {
+      card.classList.remove("fliped");
+    });
+    document.querySelector(`.${[e.target.dataset.word]}`).classList.add("fliped");
+  });
+})
+
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("flip")) {
+    card.forEach((card) => {
+      card.classList.remove("fliped");
+    });
+  }
+});
+
+// ======== Scroll The project img ============= //
+let scrollBtn = document.querySelectorAll(".portfolio .sroll");
+let scrolled = false;
+
+scrollBtn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (scrolled) {
+      e.currentTarget.parentElement.previousElementSibling.firstElementChild.style.marginTop = `0`;
+      scrolled = false;
+    } else {
+      e.currentTarget.parentElement.previousElementSibling.firstElementChild.style.marginTop = `-${e.target.dataset.height - 187}px`;
+      scrolled = true;
+    }
+  });
+})
 
 // ===== toggle between the Portfolio filter ======= //
 let filterButtons = document.querySelectorAll(".portfolio .filter ul li");
@@ -133,9 +175,9 @@ filterButtons.forEach((btn) => {
     filterButtons.forEach((btn) => btn.classList.remove("active"));
     e.target.classList.add("active");
     projects.forEach((project) => {
-      project.style.cssText = `transform: scale(0.5); display: none`;
+      project.style.cssText = `display: none`;
       document.querySelectorAll(`.portfolio .${e.target.dataset.text}`).forEach((el) => {
-        el.style.cssText = `transform: scale(1); display: block`;
+        el.style.cssText = `display: block`;
       });
     });
   })

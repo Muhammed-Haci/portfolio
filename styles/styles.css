@@ -183,8 +183,8 @@ body.light {
   :root {
     --white-clr: #000;
     --black-clr: #fff;
-    --light-clr: #bababa;
-    --dark-clr: #f5f5f5;
+    --light-clr: #303030;
+    --dark-clr: #ddd;
     --foreground-clr: linear-gradient(to bottom, #2B2B2B 0%, #1F1F1F 13%, #1F1F1F 86%, #2B2B2B 99%, #2B2B2B 100%);
     --background-clr: #1F1F1F;
     --title-clr: #e3796a;
@@ -200,8 +200,8 @@ body.light {
 body.dark {
   --white-clr: #000;
   --black-clr: #fff;
-  --light-clr: #bababa;
-  --dark-clr: #f5f5f5;
+  --light-clr: #303030;
+  --dark-clr: #ddd;
   --foreground-clr: linear-gradient(to bottom, #2B2B2B 0%, #1F1F1F 13%, #1F1F1F 86%, #2B2B2B 99%, #2B2B2B 100%);
   --background-clr: #1F1F1F;
   --title-clr: #e3796a;
@@ -341,7 +341,7 @@ header .content .options {
 }
 header .content button {
   width: 35px;
-  height: 35px;
+  height: 30px;
   cursor: pointer;
   margin-right: 10px;
   border-radius: 5px;
@@ -695,7 +695,7 @@ header nav ul a span {
 }
 .skills circle:last-child {
   stroke: var(--primary-clr);
-  stroke-dashoffset: 314;
+  stroke-dashoffset: 314.2033691406;
 }
 .skills .name {
   color: var(--black-clr);
@@ -750,7 +750,6 @@ header nav ul a span {
 }
 .portfolio .filter .project .all {
   position: relative;
-  transition: var(--transition);
   transform-style: preserve-3d;
   transition: var(--transition);
   width: 325px;
@@ -761,16 +760,40 @@ header nav ul a span {
   top: 0;
   left: 0;
   height: 100%;
-  border-radius: 20px;
-  transform-style: preserve-3d;
-  transition: var(--transition);
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
+.portfolio .filter .project .all .face.front {
+  width: 100%;
+  overflow: hidden;
+}
+.portfolio .filter .project .all .face.front .img-holder {
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.portfolio .filter .project .all .face.front .img-holder img {
+  max-height: unset;
+  transition: 10s;
+}
+.portfolio .filter .project .all .face.front .btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.portfolio .filter .project .all .face.front .btns button {
+  width: 45%;
+  cursor: pointer;
+}
 .portfolio .filter .project .all .face.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
+  color: var(--text-clr);
+  transform: rotateY(180deg);
   background-color: var(--light-clr);
-  transform: perspective(500px) rotateY(180deg);
 }
 .portfolio .filter .project .all .face.back span {
   font-weight: bold;
@@ -792,7 +815,10 @@ header nav ul a span {
   padding: 5px 10px;
   transition: var(--transition);
   border: 1px solid var(--primary-clr);
-  color: var(--black-clr);
+}
+.portfolio .filter .project .all .face.back .links a span {
+  font-weight: normal !important;
+  color: var(--text-clr) !important;
 }
 .portfolio .filter .project .all .face.back .links a:hover, .portfolio .filter .project .all .face.back .links a:focus {
   background-color: var(--primary-clr);
@@ -800,11 +826,8 @@ header nav ul a span {
 .portfolio .filter .project .all .face.back .links img {
   width: 15px;
 }
-.portfolio .filter .project .all:hover .face.front, .portfolio .filter .project .all:focus .face.front {
-  transform: perspective(500px) rotateY(180deg);
-}
-.portfolio .filter .project .all:hover .face.back, .portfolio .filter .project .all:focus .face.back {
-  transform: perspective(500px) rotateY(360deg);
+.portfolio .filter .project .all.fliped {
+  transform: rotateY(-180deg);
 }
 
 /* =========== End Portfolio =========== */
@@ -865,6 +888,7 @@ header nav ul a span {
   outline: none;
   border: none;
   border-radius: 5px;
+  background-color: #ddd;
   transition: var(--transition);
 }
 .contact input:focus::-moz-placeholder {
@@ -880,12 +904,13 @@ header nav ul a span {
   height: 100px;
   width: 100%;
   resize: none;
-  padding: 5px;
+  padding: 10px;
   overflow-y: auto;
   margin-block: 20px;
   outline: none;
   border: none;
   border-radius: 5px;
+  background-color: #ddd;
 }
 .contact textarea:focus::-moz-placeholder {
   opacity: 0;

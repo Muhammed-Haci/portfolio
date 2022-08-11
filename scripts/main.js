@@ -186,4 +186,32 @@ filterButtons.forEach((btn) => {
 // ======= Set Copyright year in the footer ======== //
 let year = document.querySelector("footer .year");
 year.textContent = new Date().getFullYear();
+
+
+
+
+
+// ============ init emailjs ================ //
+
+const btn = document.getElementById("subBtn");
+
+document.getElementById("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  btn.value = "Sending...";
+
+  const serviceID = "default_service";
+  const templateID = "template_rfg3boh";
+
+  emailjs.sendForm(serviceID, templateID, this).then(
+    () => {
+      btn.value = "Send Email";
+      alert("Your message has been sent succsessfuly, I will reply as soon as I see your message, Thank You for contacting me!");
+    },
+    (err) => {
+      btn.value = "Send Email";
+      alert(JSON.stringify(err));
+    }
+  );
+});
 //# sourceMappingURL=main.js.map

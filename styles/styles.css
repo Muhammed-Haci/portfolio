@@ -552,7 +552,9 @@ header nav ul a span {
 .about .img-holder {
   height: 400px;
   border-radius: 5px;
-  background: var(--primary-clr) url(../assets/images/about.jpg) top center/cover;
+  background: var(--primary-alt-clr) url(../assets/images/about.jpg) center center/cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 @media (min-width: 576px) {
   .about .img-holder {
@@ -769,7 +771,7 @@ header nav ul a span {
 }
 .portfolio .filter .project .all .face.front .img-holder {
   width: 100%;
-  height: 85%;
+  height: 84%;
   overflow: hidden;
   margin-bottom: 10px;
 }
@@ -784,6 +786,7 @@ header nav ul a span {
 }
 .portfolio .filter .project .all .face.front .btns button {
   width: 45%;
+  height: 25px;
   cursor: pointer;
 }
 .portfolio .filter .project .all .face.back {
@@ -838,30 +841,28 @@ header nav ul a span {
   text-align: center;
   padding-block: 50px;
   height: 300px;
-  background: var(--primary-clr);
+  color: var(--text-clr);
+  background: var(--primary-alt-clr);
 }
 .hiring p {
   font-size: 14px;
   margin-bottom: 15px;
-  color: var(--white-clr);
   text-transform: capitalize;
 }
 .hiring h2 {
-  color: var(--white-clr);
   text-transform: capitalize;
 }
 .hiring a {
   font-size: 1.125rem;
   padding: 10px 15px;
   border-radius: 20px;
-  color: var(--primary-clr);
   text-transform: capitalize;
   transition: var(--transition);
-  background-color: var(--white-clr);
+  color: #fff;
+  background-color: var(--primary-alt-clr);
 }
 .hiring a:hover, .hiring a:focus, .hiring a:active {
-  color: var(--white-clr);
-  background-color: var(--primary-alt-clr);
+  background-color: var(--primary-clr);
 }
 
 /* ============= End Hiring ============ */

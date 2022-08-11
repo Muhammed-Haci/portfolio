@@ -73,7 +73,7 @@
             <ul> 
               <li class="active" data-text="about_me">About</li>
               <li data-text="personal_info">Info</li>
-              <li data-text="Something">Something</li>
+              <li data-text="Something">Experience</li>
             </ul>
             <div class="info">
               <div class="active" data-text="about_me">I love coding and I like to see the result of my code on the screen. which I can create a website, make it responsive to fit all screens and manipulate all parts of the site. so, I specialized in front-end web development because I found It the best career fit my personality.My passion drove me to learn a lot of skills in my field. like, HTML, CSS, Javascript, react.js and many more of awesome skills, which help me in my career. So, now, in industry, this passion remains with me. there is certainly more to learn, more challenges to finish, and more to build...</div>
@@ -97,8 +97,10 @@
                   </ul>
                 </div>
               </div>
-              <div data-text="Something">Here's sth else . . . </div>
-            </div><a href="assets/images/muhammed_haci_CV.pdf" download="Muhammed_haci_Cv.pdf">Download CV<img src="assets/svg/download.svg" alt="download icon"></a>
+              <div data-text="Something"> 
+                <div>I haven't experienced working with real companies yet, <u>but</u> I have done a lot of real project some of them for practicing and some for online clients, You can check them out below in the portfolio section.</div>
+              </div>
+            </div><a href="assets/pdf/Muhammed-Haci-CV.pdf" download>Download CV<img src="assets/svg/download.svg" alt="download icon"></a>
           </div>
         </div>
       </div>
@@ -273,7 +275,7 @@
               </div>
               <div class="javascript all three">
                 <div class="face front">
-                  <div class="img-holder"><img src="assets/images/hadeer.png" alt="diyar project's image"></div>
+                  <div class="img-holder"><img src="assets/images/elif.png" alt="Elif project's image"></div>
                   <div class="btns"> 
                     <button class="sroll" data-height="1236.87">Scroll</button>
                     <button class="flip" data-word="three">Flip</button>
@@ -281,11 +283,11 @@
                 </div>
                 <div class="face back"> 
                   <div class="details">
-                    <h4> <span>Name: </span>Diyar</h4>
+                    <h4> <span>Name: </span>Elif</h4>
                     <p> <span>Used tools: </span>Html(Pug) - Css(Sass) - Javascript</p>
                     <p><span>Description: </span>A personal Website.</p>
                   </div>
-                  <div class="links"> <a href="https://github.com/Muhammed-Haci/hadeer" target="_blank"> <img src="assets/svg/code.svg" alt="Coding SVG"><span>Code </span></a><a href="https://muhammed-haci.github.io/hadeer/" target="_blank"> <img src="assets/svg/computer.svg" alt="computer SVG"><span>Live</span></a></div>
+                  <div class="links"> <a href="https://github.com/Muhammed-Haci/elif" target="_blank"> <img src="assets/svg/code.svg" alt="Coding SVG"><span>Code </span></a><a href="https://muhammed-haci.github.io/elif/" target="_blank"> <img src="assets/svg/computer.svg" alt="computer SVG"><span>Live</span></a></div>
                 </div>
               </div>
               <div class="react all four">
@@ -360,15 +362,15 @@
           <h2>Contact</h2><img src="assets/svg/contact.svg" alt="contact icon">
         </div>
         <div class="content"> 
-          <form autocomplete="on"> 
+          <form id="form" autocomplete="on" method="post"> 
             <div class="fields">
-              <input type="text" name="name" placeholder="Name ..">
-              <input type="email" name="email" placeholder="Email ..">
-              <input type="phone" name="phone" placeholder="Phone ..">
-              <input type="text" name="object" placeholder="Subject ..">
+              <input type="text" name="name" placeholder="Name .." required>
+              <input type="email" name="email" placeholder="Email .." required>
+              <input type="phone" name="phone" placeholder="Phone (optional) ..">
+              <input type="text" name="object" placeholder="Subject .." required spellcheck="true">
             </div>
-            <textarea placeholder="Your Message .."></textarea>
-            <input type="submit" value="Send">
+            <textarea name="message" placeholder="Your Message .." required spellcheck="true"> </textarea>
+            <input id="subBtn" type="submit" value="Send">
           </form>
         </div>
       </div>
@@ -383,5 +385,6 @@
     <!--================ End Footer ================= //  -->
     <!--============== Project's Scripts ============ //  -->
     <script src="scripts/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script><script type="text/javascript"> emailjs.init('jJr4WSDKavEpY-wG_') </script>
   </body>
 </html>

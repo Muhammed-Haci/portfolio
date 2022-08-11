@@ -111,7 +111,7 @@ let circle = document.querySelectorAll(".skills .circle");
 let start = false;
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY >= skillsSection.offsetTop - window.innerHeight / 1.5) {
+  if (window.scrollY >= skillsSection.offsetTop - window.innerHeight / 2) {
     if(!start) {
       progress.forEach((prog) => {
         let counter = setInterval(() => {
@@ -183,17 +183,11 @@ filterButtons.forEach((btn) => {
   })
 })
 
-// ======= Set Copyright year in the footer ======== //
-let year = document.querySelector("footer .year");
-year.textContent = new Date().getFullYear();
-
-
-
-
 
 // ============ init emailjs ================ //
 
 const btn = document.getElementById("subBtn");
+const username = document.querySelector("input[name='username']").value;
 
 document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault();
@@ -205,8 +199,8 @@ document.getElementById("form").addEventListener("submit", function (event) {
 
   emailjs.sendForm(serviceID, templateID, this).then(
     () => {
-      btn.value = "Send Email";
-      alert(`${name.value} Your message has been sent succsessfuly, I will reply as soon as I see your message, Thank You for contacting me!`);
+      btn.value = "Send";
+      alert(`${username} Your message has been sent succsessfuly, I will reply as soon as I see your message, Thank You for contacting me 😊`);
     },
     (err) => {
       btn.value = "Send Email";
@@ -214,4 +208,9 @@ document.getElementById("form").addEventListener("submit", function (event) {
     }
   );
 });
+
+
+// ======= Set Copyright year in the footer ======== //
+let year = document.querySelector("footer .year");
+year.textContent = new Date().getFullYear();
 //# sourceMappingURL=main.js.map

@@ -206,7 +206,7 @@ document.getElementById("form").addEventListener("submit", function (event) {
   emailjs.sendForm(serviceID, templateID, this).then(
     () => {
       btn.value = "Send Email";
-      alert("Your message has been sent succsessfuly, I will reply as soon as I see your message, Thank You for contacting me!");
+      alert(`${name.value} Your message has been sent succsessfuly, I will reply as soon as I see your message, Thank You for contacting me!`);
     },
     (err) => {
       btn.value = "Send Email";

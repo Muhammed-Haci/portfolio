@@ -23,7 +23,7 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: lightblue;
+  background-color: gray;
 }
 
 body::-webkit-scrollbar-corner {
@@ -604,6 +604,14 @@ header nav ul a span {
     min-height: 290px;
   }
 }
+.about .filter .info > div a {
+  color: inherit;
+  transition: var(--transition);
+  text-decoration: underline;
+}
+.about .filter .info > div a:hover {
+  color: var(--primary-clr);
+}
 .about .filter .info > div:nth-child(2) {
   gap: 1.25rem;
   flex-wrap: wrap;
@@ -619,7 +627,7 @@ header nav ul a span {
 .about .filter .info div.active {
   display: flex;
 }
-.about .filter a {
+.about .filter > a {
   margin-top: 10px;
   padding: 5px 10px;
   border-radius: 5px;
@@ -628,10 +636,10 @@ header nav ul a span {
   color: var(--white-clr);
   background-color: var(--light-clr);
 }
-.about .filter a:hover, .about .filter a:focus {
+.about .filter > a:hover, .about .filter > a:focus {
   background-color: var(--primary-alt-clr);
 }
-.about .filter a img {
+.about .filter > a img {
   width: 15px;
   margin-left: 5px;
 }
@@ -838,17 +846,30 @@ header nav ul a span {
   display: grid;
   align-items: center;
   text-align: center;
+  position: relative;
   padding-block: 50px;
   height: 300px;
-  color: var(--text-clr);
-  background: var(--primary-alt-clr);
+  background: var(--primary-alt-clr) url("../assets/images/hire.jpeg") center center/cover;
+}
+.hiring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000082;
+}
+.hiring .container {
+  z-index: 1;
 }
 .hiring p {
+  color: #ff8f24;
   font-size: 14px;
   margin-bottom: 15px;
   text-transform: capitalize;
 }
 .hiring h2 {
+  color: #03dac5;
   text-transform: capitalize;
 }
 .hiring a {
@@ -857,7 +878,7 @@ header nav ul a span {
   border-radius: 20px;
   text-transform: capitalize;
   transition: var(--transition);
-  color: #fff;
+  color: #F0F4F5;
   background-color: var(--primary-alt-clr);
 }
 .hiring a:hover, .hiring a:focus, .hiring a:active {

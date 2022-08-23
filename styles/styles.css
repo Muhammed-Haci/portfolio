@@ -584,6 +584,10 @@ header nav ul a span {
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   color: var(--black-clr);
   transition: var(--transition);
   border: 1px solid var(--primary-alt-clr);
@@ -634,7 +638,7 @@ header nav ul a span {
   color: var(--text-clr);
   transition: var(--transition);
   color: var(--white-clr);
-  background-color: var(--light-clr);
+  background-color: var(--primary-clr);
 }
 .about .filter > a:hover, .about .filter > a:focus {
   background-color: var(--primary-alt-clr);

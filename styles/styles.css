@@ -220,7 +220,7 @@ body.dark img {
   text-align: center;
   width: 200px;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 .title::before, .title::after {
   content: "";
@@ -250,7 +250,7 @@ body.dark img {
   display: block;
   width: 100%;
   height: 2px;
-  bottom: -17px;
+  bottom: -26px;
   border-top: 1px solid var(--light-clr);
 }
 .title h2::after {
@@ -261,7 +261,7 @@ body.dark img {
   height: 25px;
   border-radius: 50%;
   left: 50%;
-  bottom: -28px;
+  bottom: -38px;
   transform: translateX(-50%);
   background-color: var(--light-clr);
 }
@@ -326,11 +326,13 @@ header .content > ul li:last-child {
   width: 35px;
 }
 header .content > ul li:not(:last-child) {
-  margin-right: 10px;
+  -webkit-margin-end: 10px;
+          margin-inline-end: 10px;
 }
 @media (min-width: 768px) {
   header .content > ul li:not(:last-child) {
-    margin-right: 40px;
+    -webkit-margin-end: 40px;
+            margin-inline-end: 40px;
   }
 }
 header .content .options {
@@ -342,7 +344,8 @@ header .content button {
   width: 35px;
   height: 30px;
   cursor: pointer;
-  margin-right: 10px;
+  -webkit-margin-end: 10px;
+          margin-inline-end: 10px;
   border-radius: 5px;
   background-color: wheat;
 }
@@ -351,15 +354,18 @@ header .content button img {
 }
 header .content .website__lang {
   position: relative;
-  padding-left: 10px;
+  -webkit-padding-start: 10px;
+          padding-inline-start: 10px;
   cursor: pointer;
   z-index: 3;
   color: var(--text-clr);
-  border-left: 1px solid var(--black-clr);
+  -webkit-border-start: 1px solid var(--black-clr);
+          border-inline-start: 1px solid var(--black-clr);
 }
 header .content .website__lang img:first-child {
   width: 30px;
-  padding-right: 3px;
+  -webkit-padding-end: 3px;
+          padding-inline-end: 3px;
 }
 header .content .website__lang .flag {
   position: relative;
@@ -645,7 +651,8 @@ header nav ul a span {
 }
 .about .filter > a img {
   width: 15px;
-  margin-left: 5px;
+  -webkit-margin-start: 5px;
+          margin-inline-start: 5px;
 }
 
 /* ============ End About ============== */
@@ -913,6 +920,7 @@ header nav ul a span {
   outline: none;
   border: none;
   border-radius: 5px;
+  direction: auto;
   background-color: #ddd;
   transition: var(--transition);
 }
@@ -935,6 +943,7 @@ header nav ul a span {
   outline: none;
   border: none;
   border-radius: 5px;
+  transition: var(--transition);
   background-color: #ddd;
 }
 .contact textarea:focus::-moz-placeholder {
